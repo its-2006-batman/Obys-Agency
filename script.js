@@ -1,4 +1,5 @@
-
+function loadingAnimation(){
+    
 
 var tl = gsap.timeline()
 
@@ -26,7 +27,7 @@ tl.from("#line1-part1", {
                 })
             }
             h5timer.innerHTML = grow++
-        }), 25 )
+        }), 1)
     }
 })
 
@@ -37,6 +38,55 @@ tl.from("#page1",{
     ease:Power4,
 })
 
+}
+loadingAnimation() 
+
+function cursoranimation(){
+    //custom cursor
+
+document.addEventListener('mousemove',function(dets){
+    gsap.to('#crsr',{
+        left:dets.x,
+        top:dets.y,
+    })
+})
+
+//magnet effect
+//core concept of magnet effect is to get the offset of mouse pointer from the center of the element and move the element by that offset value
+//and on mouse leave bring back the element to its original position
+
+const magnets = document.querySelectorAll("#nav-part2 h4");
+
+magnets.forEach((ele) => {
+
+    ele.addEventListener("mousemove", (e) => {
+        const rect = ele.getBoundingClientRect();
+
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(ele, {
+            x: x * 0.35,
+            y: y * 0.35,
+            duration: 0.3,
+            ease: "power3.out"
+        });
+    });
+
+    ele.addEventListener("mouseleave", () => {
+        gsap.to(ele, {
+            x: 0,
+            y: 0,
+            duration: 0.4,
+            ease: "power3.out"
+        });
+    });
+
+});
 
 
+//Shery.makeMagnet("#nav-part2 h4" /* Element to target.*/,);
 
+}
+
+cursoranimation()
