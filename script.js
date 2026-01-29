@@ -32,10 +32,17 @@ tl.from("#line1-part1", {
 })
 
 tl.from("#page1",{
-    delay:0.2,
+    delay:0.8,
     y:1600,
     opacity:0,
     ease:Power4,
+})
+tl.from("#nav",{
+    opacity:0,
+})
+tl.from("#hero1 h1, #hero2 h1, #hero3 h2,#hero4 h1",{
+    y:140,
+    stagger:0.2
 })
 
 }
@@ -68,7 +75,6 @@ magnets.forEach((ele) => {
         gsap.to(ele, {
             x: x * 0.35,
             y: y * 0.35,
-            duration: 0.3,
             ease: "power3.out"
         });
     });
@@ -77,7 +83,6 @@ magnets.forEach((ele) => {
         gsap.to(ele, {
             x: 0,
             y: 0,
-            duration: 0.4,
             ease: "power3.out"
         });
     });

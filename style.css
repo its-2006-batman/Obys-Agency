@@ -1,17 +1,18 @@
+@font-face {
+    font-family: 'silk serif';
+    src: url('./silkserif-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
-  font-family: 'silk serif';
-  src: url('./silkserif-regularitalic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Plain Light';
+    src: url('./plain-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-@font-face {
-  font-family: 'Plain Light';
-  src: url('./plain-light-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-} 
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,12 +20,19 @@
     font-family: "Plain Light";
 }
 
-html , body{
+html,
+body {
     height: 100%;
     width: 100%;
     cursor: none;
+    background-color: #151515;
+
 }
-#crsr{
+body {
+    overflow-x: hidden;}
+
+#crsr {
+    pointer-events: none;
     height: 3vw;
     width: 3vw;
     border-radius: 50%;
@@ -33,18 +41,20 @@ html , body{
     z-index: 999;
     border: 1px solid #ffffffdf;
     mix-blend-mode: difference;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-#loader{
-    position: fixed ;
+
+#loader {
+    position: fixed;
     height: 100vh;
     width: 100%;
     z-index: 999;
     background-color: #000000;
     padding: 25vh 10vw;
-    
+
 }
-.line{
+
+.line {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -52,57 +62,66 @@ html , body{
     overflow: hidden;
     gap: 3vw;
 }
-#line1-part1{
+
+#line1-part1 {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2vw;
     width: fit-content;
 }
-#line1-part1 h5, #line1-part1 h6{
-     font-size:4vw;
-     font-family: 'silk serif';
+
+#line1-part1 h5,
+#line1-part1 h6 {
+    font-size: 4vw;
+    font-family: 'silk serif';
 }
-#line1-part1 h5{
+
+#line1-part1 h5 {
     width: 5vw;
 }
-.line h1{
-    font-size:6.5vw;
+
+.line h1 {
+    font-size: 6.5vw;
     text-transform: uppercase;
     font-weight: 500;
 }
-.line h2{
+
+.line h2 {
     font-size: 6vw;
     text-transform: uppercase;
     font-family: 'silk serif';
     animation: anime 2s infinite;
-    height: 8vw ;
+    height: 8vw;
     font-weight: 500;
 }
 
 @keyframes anime {
-    0%{
+    0% {
         font-family: 'Plain Light';
         -webkit-text-stroke: 1px #fff;
-        color:white;
+        color: white;
         opacity: 1;
-        
+
     }
-    47%{
+
+    47% {
         font-family: 'Plain Light';
         -webkit-text-stroke: 1px #fff;
-        color:white;
+        color: white;
         opacity: 0;
-        
+
     }
-    50%{
+
+    50% {
         font-family: 'silk serif';
         -webkit-text-stroke: 1px #fff;
         color: transparent;
         opacity: 1;
-        
+
     }
-    100%{
+
+    100% {
         font-family: 'silk serif';
         -webkit-text-stroke: 1px #fff;
         color: transparent;
@@ -110,25 +129,29 @@ html , body{
     }
 
 }
-#main{
+
+#main {
     position: relative;
     background-color: #030303;
 }
 
-#page1{
-    height:100vh;
+#page1 {
+    height: 100vh;
     width: 100%;
     background-color: #151515;
-} 
-#page1 #nav{
+}
+
+#page1 #nav {
     display: flex;
     align-self: center;
     justify-content: space-between;
 }
-.brand__svg{
+
+.brand__svg {
     margin: 4vw 6vw;
 }
-#nav-part2{
+
+#nav-part2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,24 +159,178 @@ html , body{
     font-weight: 100;
     margin-right: 4vw;
 }
+
 #nav-part2 h4 {
-  padding: 4vw 1.5vw;   /* 👈 creates magnet zone */
+    padding: 4vw 1.5vw;
+    /*magnet zone */
 }
 
-.hero{
+.hero {
     width: 72%;
     margin-left: 28%;
-    
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 9999;
 }
-.hero:nth-child(2){
+
+.hero:nth-child(2) {
     margin-top: 15vh;
 }
-.hero h1{
-   
+
+.hero h1 {
     font-size: 7.2vw;
     text-transform: uppercase;
     line-height: 7vw;
-    
 }
 
+.hero h2 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    line-height: 7vw;
+    border-bottom: 0.5vw solid white;
+    padding-bottom: 0.8vw;
+    animation: none;
+    display: inline-block;
+}
 
+.hero h2:hover {
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    font-weight: 500;
+    border-bottom-color: transparent;
+    animation-play-state: paused;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    padding-top: 7vh;
+}
+
+#videocontainer {
+    background-color: blue;
+    height: 60vh;
+    width: 70vw;
+    position: relative;
+    left: 29%;
+    
+    background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg);
+}
+
+#videocontainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+}
+
+#videocontainer video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#video-cursor {
+    background-color: #FFA63D;
+    height: 11vw;
+    width: 11vw;
+    border-radius: 50%;
+    position: absolute;
+    top: -10%;
+    left: 66%;
+    z-index: 99;
+}
+#video-cursor svg {
+    height: 3vw;
+    width: 3vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#page3 {
+    height: 100vh;
+    width: 100%;
+    background-color: #a7a7a7;
+    position: relative;
+}
+
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+    padding:7vh 0;
+}
+
+#page4-content{
+    width: 72vw;
+    margin-left: 28vw;
+}
+
+#page4-content h1{
+    font-size:7vw;
+    text-transform: uppercase;
+    margin-bottom:2vh;
+}
+#page4-content .underline{
+
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin:5vw 0;
+}
+
+#page4-content>p{
+    font-size:2.3vw;
+    margin-bottom:3vw;
+    width: 50%;
+}
+
+#page4-flex{
+    display: flex;
+    margin-top: 10vh;
+}
+#page4-flex img{
+    width: 48%;
+}
+#page4-flex p{
+font-size: 1.3vw;
+margin-left: 2vw;
+width: 25%;
+}
+
+#page4-blue{
+    background-color: #3f7df4;
+    width: 43vw;
+    padding: 4.5vw;
+    position: relative;
+    margin-top: -18vh;
+    margin-left:24vw;
+}
+.blue-div-elem{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 1.7vw 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.724);
+}
+.blue-div-elem p{
+    width: 50%;
+    font-size: 1.1vw;
+}
+.blue-div-elem h4{
+    font-size: 2vw;
+    font-weight: 500;
+}
+
+#page5{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #151515;
+}
