@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obyss Agency</title>
-    <link rel="shortcut icon" href="./favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <!--LOCOMOTIVE CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css">
+    <!--SHERY CSS-->
+     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css">
+    <!--Animate Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+   
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -33,6 +38,9 @@
     <div id="main">
         <div id="page1" data-scroll>
             <div id="nav">
+                <button id="menu-toggle" class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
                 <svg class="brand__svg" width="71" height="27" viewBox="0 0 71 27">
                     <path
                         d="M40.7622 24.5917C40.7622 23.6724 41.4511 22.9829 42.3697 22.9829C43.2883 22.9829 43.9773 23.6724 43.9773 24.5917C43.9773 25.511 43.2883 26.2005 42.3697 26.2005C41.566 26.2005 40.7622 25.3961 40.7622 24.5917Z"
@@ -65,10 +73,21 @@
                         d="M0 14.0195C0 10.4572 2.9854 7.58432 6.77456 7.35449C4.4781 7.69923 3.78916 11.4914 3.78916 14.0195C3.78916 16.5476 4.4781 20.2249 6.77456 20.6845C2.9854 20.4547 0 17.5819 0 14.0195Z"
                         fill="currentColor"></path>
                 </svg>
+                <div class="extra"><h6>Obys—
+Creative
+Design
+Agency
+</h6>
+</div>
                 <div id="nav-part2">
                     <h4>Works</h4>
                     <h4>About </h4>
                     <h4>Contacts</h4>
+                </div>
+                <div id="mobile-menu" class="mobile-menu-panel" aria-hidden="true">
+                    <a href="#page3">Works</a>
+                    <a href="#page4">About</a>
+                    <a href="#footer">Contacts</a>
                 </div>
             </div>
             <div class="hero" id="hero1">
@@ -85,7 +104,7 @@
             <div class="hero" id="hero4">
                 <h1>Experience</h1>
             </div>
-            <img id="flag" src="./Flag.jpg" alt="">
+            <img id="flag" src="./assets/images/Flag.jpg" alt="">
         </div>
         <div id="page2" data-scroll data-scroll-speed="-1.5">
             <div id="videocontainer">
@@ -97,7 +116,7 @@
                     </svg>
                 </div>
                 <img src="https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg" alt="">
-                <video loop src="./Obys-Showreel-2024.mp4"></video>
+                <video loop src="./assets/video/Obys-Showreel-2024.mp4"></video>
             </div>
         </div>
         <div id="page3" data-scroll data-scroll-speed="-1.5">
@@ -105,10 +124,13 @@
             <div class="underline2"></div>
             <div id="image-container">
                 <div class="try">
-                    <h2>AIM</h2>
+                    <div class="img-title">
+                    <h2 class="text1">AIM</h2>
+                    <h2 class="text2">AIM</h2>
+                    </div>
                     <div class="img-div">
-                        <img src="./AIM-1.png" alt="">
-                        <img src="./AIM-3.png" alt="">
+                        <img src="./assets/images/AIM-1.png" alt="">
+                        <img src="./assets/images/AIM-3.png" alt="">
                     </div>
                     <div class="img-description">
                         <h4>Logo design, Website design, Development</h4>
@@ -120,8 +142,8 @@
                 <div class="try">
                     <h2>Glyphic <br>Biotechnologies</h2>
                     <div class="img-div">
-                        <img src="./Eminente_1.png" alt="">
-                        <img src="./Glyphic-Biotechnologies-big.png" alt="">
+                        <img src="./assets/images/Eminente_1.png" alt="">
+                        <img src="./assets/images/Glyphic-Biotechnologies-big.png" alt="">
                     </div>
                     <div class="img-description">
                         <h4>Website design,
@@ -153,42 +175,41 @@
                     </div>
                 </div>
                 <div class="try">
-                    <h2>AIM</h2>
+                    <h2>OLGA PRUDKA</h2>
                     <div class="img-div">
-                        <img src="./AIM-1.png" alt="">
-                        <img src="./AIM-3.png" alt="">
+                        <img src="./assets/images/Olga_Prudka_1.png" alt="">
+                        <img src="./assets/images/Olga_Prudka_2.png" alt="">
                     </div>
                     <div class="img-description">
                         <h4>Logo design, Website design, Development</h4>
-                        <h5>2024</h5>
+                        <h5>2023</h5>
 
                     </div>
                     <div class="img-underline"></div>
                 </div>
                 <div class="try">
-                    <h2>Glyphic <br>Biotechnologies</h2>
+                    <h2>MAKHNO</h2>
                     <div class="img-div">
-                        <img src="./Eminente_1.png" alt="">
-                        <img src="./Glyphic-Biotechnologies-big.png" alt="">
+                        <img src="./assets/images/Makhno_First.png" alt="">
+                        <img src="./assets/images/makhno-_img1-x2.png" alt="">
                     </div>
                     <div class="img-description">
                         <h4>Website design,
-                            3D Design,
                             Development</h4>
-                        <h5>2025</h5>
+                        <h5>2023</h5>
 
                     </div>
                     <div class="img-underline"></div>
                 </div>
                 <div class="try">
-                    <h2>Glyphic <br>Biotechnologies</h2>
+                    <h2>Éminente</h2>
                     <div class="img-div">
-                        <img src="./Eminente_1.png" alt="">
-                        <img src="./Glyphic-Biotechnologies-big.png" alt="">
+                        <img src="./assets/images/Éminente_First.png" alt="">
+                        <img src="./assets/images/Éminente_Second.png" alt="">
                     </div>
                     <div class="img-description">
-                        <h4>Website design,
-                            3D Design,
+                        <h4>Logo design,
+                            Website Design,
                             Development</h4>
                         <h5>2025</h5>
 
@@ -205,19 +226,23 @@
                     </div>
                 </div>
                 <div class="try">
-                    <h2>Glyphic <br>Biotechnologies</h2>
+                    <h2>David Laxer</h2>
                     <div class="img-div">
-                        <img src="./Eminente_1.png" alt="">
-                        <img src="./Glyphic-Biotechnologies-big.png" alt="">
+                        <img src="./assets/images/Laxer_1-2.png" alt="">
+                        <img src="./assets/images/Laxer_2.png" alt="">
                     </div>
                     <div class="img-description">
                         <h4>Website design,
-                            3D Design,
                             Development</h4>
                         <h5>2025</h5>
 
                     </div>
                     <div class="img-underline"></div>
+                </div>
+            </div>
+            <div id="project-circle">
+                <div id="circle5">
+                    <h6>All Project(19)</h6>
                 </div>
             </div>
         </div>
@@ -353,10 +378,13 @@
 
         </div>
     </div>
+    <!--LOCOMOTIVE-->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <!--GSAP-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
         integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--ScrollTrigger-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
         integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -365,8 +393,20 @@
 
     <!-- ControlKit is needed for Debug Panel -->
     <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-
+    
+    <!--Shery Js for image effect  dependency threejs and controlkit-->
     <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+
+    <!--Lettering js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js" integrity="sha512-VJ/iYbiu1eJ6yLimfTi65t2R9TFcG5D9X8ZCfbbEFhTfPnKJh8byoKXEawi5ScJZBYL1eiirL1+MczZDx0Tz9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--textillate -->
+    
+<script src="
+https://cdn.jsdelivr.net/npm/textillate@0.4.1/jquery.textillate.min.js
+"></script>
     <script src="script.js"></script>
 </body>
 

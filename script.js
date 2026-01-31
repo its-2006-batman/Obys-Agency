@@ -63,7 +63,7 @@ function loadingAnimation() {
                     })
                 }
                 h5timer.innerHTML = grow++
-            }), 1)
+            }), 35)
         }
     })
 
@@ -169,38 +169,47 @@ function videoplay() {
     var videocontainer = document.querySelector("#videocontainer")
     var image = document.querySelector("#videocontainer img")
     var cursor = document.querySelector("#video-cursor")
-    videocontainer.addEventListener("click", function () {
-        var video = document.querySelector("#videocontainer video")
+    var video = document.querySelector("#videocontainer video")
+    var isTouch = window.matchMedia('(pointer:coarse)').matches
+
+    function playUI() {
         video.play();
         gsap.to('#videocontainer', {
-            width: 100 + 'vw',
-            left: 0 + 'vw',
+            width: '100vw',
+            left: '0vw',
         })
-
         image.style.opacity = 0;
-        cursor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="rgba(255,255,255,1)"><path d="M15 7C15 6.44772 15.4477 6 16 6C16.5523 6 17 6.44772 17 7V17C17 17.5523 16.5523 18 16 18C15.4477 18 15 17.5523 15 17V7ZM7 7C7 6.44772 7.44772 6 8 6C8.55228 6 9 6.44772 9 7V17C9 17.5523 8.55228 18 8 18C7.44772 18 7 17.5523 7 17V7Z"></path></svg>`
-        gsap.to("#video-cursor", {
-            scale: 0.5,
-        })
-    })
-    videocontainer.addEventListener("dblclick", function () {
-        var video = document.querySelector("#videocontainer video")
+        if (cursor) {
+            cursor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12" fill="rgba(255,255,255,1)"><path d="M15 7C15 6.44772 15.4477 6 16 6C16.5523 6 17 6.44772 17 7V17C17 17.5523 16.5523 18 16 18C15.4477 18 15 17.5523 15 17V7ZM7 7C7 6.44772 7.44772 6 8 6C8.55228 6 9 6.44772 9 7V17C9 17.5523 8.55228 18 8 18C7.44772 18 7 17.5523 7 17V7Z"></path></svg>`
+            gsap.to("#video-cursor", { scale: 0.5 })
+        }
+    }
+
+    function pauseUI() {
         video.pause();
         gsap.to('#videocontainer', {
-            width: 70 + 'vw',
-            left: 30 + 'vw',
+            width: isTouch ? '100vw' : '70vw',
+            left: isTouch ? '0vw' : '30vw',
         })
-
         image.style.opacity = 1;
-        cursor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="rgba(255,255,255,1)">
-                        <path
-                            d="M19.376 12.4161L8.77735 19.4818C8.54759 19.635 8.23715 19.5729 8.08397 19.3432C8.02922 19.261 8 19.1645 8 19.0658V4.93433C8 4.65818 8.22386 4.43433 8.5 4.43433C8.59871 4.43433 8.69522 4.46355 8.77735 4.5183L19.376 11.584C19.6057 11.7372 19.6678 12.0477 19.5146 12.2774C19.478 12.3323 19.4309 12.3795 19.376 12.4161Z">
-                        </path>
-                    </svg>`
-        gsap.to("#video-cursor", {
-            scale: 1,
+        if (cursor) {
+            cursor.innerHTML = `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" fill=\"rgba(255,255,255,1)\"><path d=\"M19.376 12.4161L8.77735 19.4818C8.54759 19.635 8.23715 19.5729 8.08397 19.3432C8.02922 19.261 8 19.1645 8 19.0658V4.93433C8 4.65818 8.22386 4.43433 8.5 4.43433C8.59871 4.43433 8.69522 4.46355 8.77735 4.5183L19.376 11.584C19.6057 11.7372 19.6678 12.0477 19.5146 12.2774C19.478 12.3323 19.4309 12.3795 19.376 12.4161Z\"></path></svg>`
+            gsap.to("#video-cursor", { scale: 1 })
+        }
+    }
+
+    if (isTouch) {
+        videocontainer.addEventListener("click", function () {
+            if (video.paused) {
+                playUI()
+            } else {
+                pauseUI()
+            }
         })
-    })
+    } else {
+        videocontainer.addEventListener("click", playUI)
+        videocontainer.addEventListener("dblclick", pauseUI)
+    }
 
 }
 
@@ -224,6 +233,91 @@ function flag() {
         })
     })
 }
+// Interactive mobile menu
+function mobileMenu() {
+    var btn = document.querySelector('#menu-toggle')
+    var panel = document.querySelector('#mobile-menu')
+    if (!btn || !panel) return
+
+    btn.addEventListener('click', function () {
+        var open = panel.classList.toggle('open')
+        document.body.classList.toggle('menu-open', open)
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false')
+        panel.setAttribute('aria-hidden', open ? 'false' : 'true')
+        gsap.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: 0.3 })
+    })
+}
+
+// Tap-to-toggle project images on mobile
+function mobileProjectImages() {
+    var isTouch = window.matchMedia('(pointer:coarse)').matches
+    if (!isTouch) return
+    document.querySelectorAll('#image-container .img-div').forEach(function (div) {
+        var imgs = div.querySelectorAll('img')
+        if (imgs.length < 2) return
+        var showingFirst = true
+        // initialize states
+        gsap.set(imgs[0], { opacity: 1 })
+        gsap.set(imgs[1], { opacity: 0 })
+        div.addEventListener('click', function () {
+            showingFirst = !showingFirst
+            gsap.to(imgs[0], { opacity: showingFirst ? 1 : 0, duration: 0.4 })
+            gsap.to(imgs[1], { opacity: showingFirst ? 0 : 1, duration: 0.4 })
+        })
+    })
+}
+
+// Awards accordion
+function mobileAwardsAccordion() {
+    var isTouch = window.matchMedia('(pointer:coarse)').matches
+    if (!isTouch) return
+    document.querySelectorAll('#page4-blue .blue-div-elem').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var open = el.classList.toggle('open')
+            var p = el.querySelector('p')
+            if (!p) return
+            gsap.to(p, { opacity: open ? 1 : 0.6, duration: 0.3 })
+        })
+    })
+}
+function textillateanimation() {
+    var footerh1 = document.querySelector("#footer h1");
+
+footerh1.addEventListener("mouseenter", function () {
+    $('#footer h1').textillate({
+    autoStart: false,
+    in: { effect: 'fadeIn' },
+});
+
+
+    gsap.to(footerh1, {
+        webkitTextStroke: "1px white",
+        webkitTextFillColor: "transparent",
+        fontStyle:"Italic",
+        duration: 0.3,
+        ease: "power2.out"
+    });
+
+    // Force restart animation
+    $('#footer h1').textillate('in');
+});
+
+footerh1.addEventListener("mouseleave", function () {
+    $('#footer h1').textillate({
+    autoStart: false,
+    in: { effect: 'fadeIn' },
+});
+
+    gsap.to(footerh1, {
+        webkitTextStroke: "1px white",
+        webkitTextFillColor: "white",
+        fontStyle:"normal",
+        duration: 0.3,
+        ease: "power2.out"
+    });
+    $('#footer h1').textillate('in');
+});
+}
 
 locomotiveanimation()
 loadingAnimation()
@@ -232,3 +326,56 @@ sheryanimation()
 videocursor()
 videoplay()
 flag()
+textillateanimation();
+mobileMenu()
+mobileProjectImages()
+mobileAwardsAccordion()
+
+var title = document.querySelector(".img-title");
+var text1 = document.querySelector(".text1");
+var text2 = document.querySelector(".text2");
+
+title.addEventListener("mouseenter", function () {
+    console.log("hovered");
+
+    gsap.killTweensOf([text1, text2]);
+
+    gsap.to(text1, {
+        y: -100,
+        duration: 0.4,
+        ease: "power3.out"
+    });
+
+    gsap.to(text2, {
+        y: -100,
+        duration: 0.4,
+        ease: "power3.out"
+    });
+});
+
+title.addEventListener("mouseleave", function () {
+    console.log("hovered out");
+
+    gsap.killTweensOf([text1, text2]);//chatgpt ki jai ho instantly kills the previous animation in stack the problem was that the unhover happend without any movement so this cleared it 
+
+    gsap.to(text1, {
+        y: 0,
+        duration: 0.4,
+        ease: "power3.out"
+    });
+
+    gsap.to(text2, {
+        y: 0,
+        duration: 0.4,
+        ease: "power3.out"
+    });
+});
+
+
+
+
+
+
+
+
+
