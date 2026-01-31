@@ -254,28 +254,29 @@ body {
     position: absolute;
     top: -10%;
     left: 66%;
-    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
 
 #video-cursor svg {
     height: 3vw;
     width: 3vw;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
 }
 
 #page3 {
-    min-height: 100vh;
+    min-height: fit-content;
     width: 100%;
     background-color: #151515;
     position: relative;
     padding: 1vh 2vw;
+    margin-bottom: 20vh;
 }
 
 #page3 h1 {
-    font-size: 7vw;
+    font-size: 7.3vw;
     text-transform: uppercase;
     margin-bottom: 1.5vh;
     position: relative;
@@ -293,23 +294,162 @@ body {
 }
 
 #image-container {
+    
     padding: 1vw;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 23vh;
 }
-
+.try{
+    overflow: hidden;
+}
+.try h2{
+    font-size: 3vw;
+    margin: 2vw;
+    margin-bottom: 3vw;
+    margin-top: 4vw;
+    position: relative;
+    
+}
+.img-description{
+    margin-left: 2vw;
+    width: 100%;
+    display: flex;
+    
+}
+.img-description h4{
+   width: 35%;
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+.img-description h5{
+    font-size: 1.2vw;
+    font-weight: 500;
+    margin-left: 38%;
+}
+.img-underline{
+    height: 1px;
+    width: 90%;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    background-color: white;
+}
 .img-div {
     height: 50vh;
-    width: 24vw;
+    width: 25vw;
     position: relative;
     overflow: hidden;
+    margin: 2vw;
+}
+
+.try:nth-child(2) .img-div{
+    height: 65vh;
+    width: 30vw;
+}
+
+.page3-circle1{
+    height: 25vw;
+    width: 25vw;
+    border-radius: 50%;
+    border:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4vw;
+    margin-top: 63vh;
+    position: relative;
+}
+.page3-circle1 svg{
+    height: 35%;
+}
+.page3-circle2{
+    height: 25vw;
+    width: 25vw;
+    border-radius: 50%;
+    border:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0vw;
+    position: relative;
+}
+.page3-circle2 svg{
+    height: 35%;
+    rotate: -45deg;
+}
+.page3-circle3{
+    height: 25vw;
+    width: 25vw;
+    border-radius: 50%;
+    border:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0vw;
+    position: relative;
+    margin-top: 80vh;
+}
+.page3-circle3 svg{
+    height: 35%;
+    rotate: -90deg;
 
 }
 
+.circle-text{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+
+    transition: all 0.4s ease-in-out;
+    scale: 0;
+    overflow: hidden;
+}
+.circle-text p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2vw;
+    width: 80%;
+    font-weight: 600;
+    color: black;
+    scale: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.4s;
+    opacity: 0;
+}
+
+.page3-circle1:hover .circle-text{
+    scale: 1;
+    
+}
+.page3-circle1:hover p{
+    scale: 1;
+    opacity: 1;
+}
+.page3-circle2:hover .circle-text{
+    scale: 1;
+}
+.page3-circle3:hover p{
+    scale: 1;
+    opacity: 1;
+}
+.page3-circle3:hover .circle-text{
+    scale: 1;
+}
+.page3-circle2:hover p{
+    scale: 1;
+    opacity: 1;
+}
 .img-div img {
     height: 100%;
     width: 100%;
@@ -481,7 +621,7 @@ body {
 }
 
 #footer {
-    min-height: fit-content;
+    min-height: 85vh;
     width: 100vw;
     position: relative;
     background-color: #151515;
@@ -507,8 +647,8 @@ body {
 }
 
 .underline2 {
-    height: 1px;
-    width: 65%;
+    height: 2px;
+    width: 67%;
     background-color: white;
     margin-top: 2.5vw;
     margin-bottom: 3vw;
@@ -544,3 +684,14 @@ body {
     z-index: 999999 !important;
     pointer-events: none;
 }
+
+#flag{
+    height: 24vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: -999;
+}
+
